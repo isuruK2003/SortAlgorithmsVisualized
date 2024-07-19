@@ -1,0 +1,82 @@
+:root {
+    --page-width:750px;
+}
+
+body {
+    margin: 0;
+    background-color: #fff;
+    font-family: Arial, Helvetica, sans-serif;
+}
+
+main {
+    margin: 0 1em;
+    display: grid;
+    grid-template-rows: auto auto;
+}
+
+.header {
+    width: 100%;
+    padding: 1em 0;
+    color: #000;
+    background-color: #dfdfdf;
+    margin-bottom: 3em;
+    text-align: center;
+    border-bottom: solid 1px #000;
+}
+
+.top {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    width: 100%;
+}
+
+.bottom {
+    display: flex;
+    align-items: center;
+    justify-content: space-evenly;
+    height: 30vh;
+}
+
+.bottom select {
+    padding: 0.5em;
+    font: inherit;
+}
+
+.bottom button {
+    padding: 0.5em;
+    border: none;
+    font: inherit;
+    background-color: #000;
+    color: #fff;
+    cursor: pointer;
+}
+
+.bottom button:hover {
+    background-color: #333;
+}
+
+.controls-bar {
+    background-color: #fff;
+    padding: 1em;
+    max-width: var(--page-width); /* Currently no effect */
+    border: solid 1px #000;
+}
+
+.bars {
+    background-color: #fff;
+    width: 80%;
+    max-width: var(--page-width);
+    height: 370px;
+    display: grid;
+    grid-template-columns: repeat(20, auto);
+    column-gap: 1px;
+    align-items:end;
+    justify-content: space-evenly;
+    border: solid 1px #000;
+    padding: 1em;
+}
+
+.bar {
+    background-color: rgb(201, 125, 85);
+}

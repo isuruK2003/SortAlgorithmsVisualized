@@ -1,0 +1,37 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Sort Visualize</title>
+    <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+    <head>
+        <div class="header">
+            <h1>Sort Algorithms Visualized</h1>
+        </div>
+    </head>
+    <main>
+        <div class="top">
+            <div class="bars">
+                <!-- <div class="bar"></div> -->
+            </div>
+        </div>
+        <div class="bottom">
+            <div class="controls-bar">
+                <label for="sort-speed">Speed: </label>
+                <input type="range" id="sort-speed">
+                <select name="algo" id="sort-algo">
+                    <option value="selection-sort">Selection Sort</option>
+                    <option value="bubble-sort">Bubble Sort</option>
+                    <option value="bogo-sort">Bogo Sort</option>
+                </select>
+                <button id="sort-button">Sort</button>
+                <button id="refresh">Refresh</button>
+            </div>
+        </div>
+    </main>
+    <script src="script.js"></script>
+</body>
+</html>

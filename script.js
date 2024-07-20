@@ -1,7 +1,7 @@
 const maxBarHeight = 100;
 const minBarHeight = 0;
 const barsElem = document.getElementsByClassName("bars")[0];
-const maxSleepTimeMillis = 1000; // 1 seconds
+const maxSleepTimeMillis = 1000; // 1 second
 
 var nBars;
 var barHeights = []
@@ -72,6 +72,24 @@ function refresh() {
     makeBars();
 }
 
+function sortBySelectedAlgorithm() {
+    let sort_algo = document.getElementById("sort-algo").value;
+    let sort_speed = document.getElementById("sort-speed").value;
+    let sleepTimeMillis = parseInt(maxSleepTimeMillis / sort_speed);
+
+    switch (sort_algo) {
+        case "bubble-sort":
+            BubbleSortVisualized(sleepTimeMillis);
+            break;
+
+        case "selection-sort":
+            selectionSortVisualized(sleepTimeMillis);
+            break;
+        case "bogo-sort":
+            window.location.href = "https://youtu.be/dQw4w9WgXcQ";
+    }
+}
+
 function main() {
     loadBarHeights();
     // Addjust bar width
@@ -80,23 +98,7 @@ function main() {
 
     document.getElementById("sort-button").addEventListener(
         "click",
-        function () {
-            let sort_algo = document.getElementById("sort-algo").value;
-            let sort_speed = document.getElementById("sort-speed").value;
-            let sleepTimeMillis = parseInt(maxSleepTimeMillis / sort_speed);
-
-            switch (sort_algo) {
-                case "bubble-sort":
-                    BubbleSortVisualized(sleepTimeMillis);
-                    break;
-
-                case "selection-sort":
-                    selectionSortVisualized(sleepTimeMillis);
-                    break;
-                case "bogo-sort":
-                    window.location.href = "https://youtu.be/dQw4w9WgXcQ";
-            }
-        },
+        sortBySelectedAlgorithm
     );
 
     document.getElementById("refresh").addEventListener(
@@ -113,7 +115,6 @@ function main() {
         "change",
         refresh
     );
-
 }
 
 document.addEventListener("DOMContentLoaded", main())

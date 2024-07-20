@@ -8,7 +8,7 @@
 
 body {
     margin: 0;
-    background-color: #fff;
+    background-color: whitesmoke;
     font-family:'Courier New', Courier, monospace;
 }
 
@@ -55,6 +55,14 @@ button:hover {
     padding: 1em;
 }
 
+@media only screen and (max-width: 600px) {
+    .container {
+        grid-template-columns: none;
+        grid-template-rows: 50% 50%;
+        align-items: center;
+    }
+  }
+
 /* Controls Section */
 
 .controls {
@@ -62,6 +70,7 @@ button:hover {
     grid-template-rows: 90% 10%;
     height: 100%;
     border: solid 1px #000;
+    background-color: #fff;
     padding: 1em;
     box-sizing: border-box;
 }
@@ -83,20 +92,23 @@ button:hover {
 
 /* Bar Container */
 
-.bars {
+.bars-section {
+    padding: 1em;
     background-color: #fff;
+    border: solid 1px #000;
+}
+
+.bars {
     height: 370px;
     display: grid;
     grid-template-columns: repeat(20, auto);
     column-gap: 1px;
     align-items:end;
     justify-content: space-evenly;
-    border: solid 1px #000;
-    padding: 1em;
 }
 
 /* A single bar */
 
 .bar {
-    background-color: rgb(201, 125, 85);
+    background-color: rgb(223, 168, 72);
 }

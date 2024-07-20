@@ -1,6 +1,10 @@
+/* Global Variables */
+
 :root {
     --page-width:750px;
 }
+
+/* Global Styles */
 
 body {
     margin: 0;
@@ -8,11 +12,25 @@ body {
     font-family:'Courier New', Courier, monospace;
 }
 
-main {
-    margin: 0 1em;
-    display: grid;
-    grid-template-rows: auto auto;
+select {
+    padding: 0.5em;
+    font: inherit;
 }
+
+button {
+    padding: 0.5em;
+    border: none;
+    font: inherit;
+    background-color: #000;
+    color: #fff;
+    cursor: pointer;
+}
+
+button:hover {
+    background-color: #333;
+}
+
+/* Header */
 
 .header {
     width: 100%;
@@ -24,49 +42,49 @@ main {
     border-bottom: solid 1px #000;
 }
 
-.top {
-    display: flex;
+/* Container that holds the bar container and controls */
+
+.container {
+    display: grid;
+    grid-template-columns: 60% 40%;
+    align-items: start;
+    justify-content: space-evenly;
+    column-gap: 1em;
+    max-width: 1000px;
+    margin: 0 auto;
+    padding: 1em;
+}
+
+/* Controls Section */
+
+.controls {
+    display: grid;
+    grid-template-rows: 90% 10%;
+    height: 100%;
+    border: solid 1px #000;
+    padding: 1em;
+    box-sizing: border-box;
+}
+
+.controls-inputs {
+    height: 100%;
+    overflow: auto;
+}
+
+.row {
+    width: 100%;
+    display: grid;
+    grid-template-columns: 50% 50%;
     align-items: center;
     justify-content: center;
-    width: 100%;
+    justify-items: center;
+    margin-bottom: 1em;
 }
 
-.bottom {
-    display: flex;
-    align-items: center;
-    justify-content: space-evenly;
-    height: 30vh;
-}
-
-.bottom select {
-    padding: 0.5em;
-    font: inherit;
-}
-
-.bottom button {
-    padding: 0.5em;
-    border: none;
-    font: inherit;
-    background-color: #000;
-    color: #fff;
-    cursor: pointer;
-}
-
-.bottom button:hover {
-    background-color: #333;
-}
-
-.controls-bar {
-    background-color: #fff;
-    padding: 1em;
-    max-width: var(--page-width); /* Currently no effect */
-    border: solid 1px #000;
-}
+/* Bar Container */
 
 .bars {
     background-color: #fff;
-    width: 80%;
-    max-width: var(--page-width);
     height: 370px;
     display: grid;
     grid-template-columns: repeat(20, auto);
@@ -76,6 +94,8 @@ main {
     border: solid 1px #000;
     padding: 1em;
 }
+
+/* A single bar */
 
 .bar {
     background-color: rgb(201, 125, 85);

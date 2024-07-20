@@ -13,22 +13,48 @@
         </div>
     </head>
     <main>
-        <div class="top">
-            <div class="bars">
-                <!-- <div class="bar"></div> -->
+
+        <div class="container">
+            <div class="bar-section">
+                <div class="bars">
+                    <!-- <div class="bar"></div> -->
+                </div>
             </div>
-        </div>
-        <div class="bottom">
-            <div class="controls-bar">
-                <label for="sort-speed">Speed: </label>
-                <input type="range" id="sort-speed">
-                <select name="algo" id="sort-algo">
-                    <option value="selection-sort">Selection Sort</option>
-                    <option value="bubble-sort">Bubble Sort</option>
-                    <option value="bogo-sort">Bogo Sort</option>
-                </select>
-                <button id="sort-button">Sort</button>
-                <button id="refresh">Refresh</button>
+            <div class="controls">
+                <div class="controls-inputs">
+                    <div class="row">
+                        <div class="col-25">
+                            <label for="no-of-elements">No. of Elements</label>
+                        </div>
+                        <div class="col-75">
+                            <input type="range" id="no-of-elements" max="500" min="10">
+                        </div>
+                    </div>
+                    <div class="row">
+                        <div class="col-25">
+                            <label for="sort-speed">Speed</label>
+                        </div>
+                        <div class="col-75">
+                            <input type="range" id="sort-speed">
+                        </div>
+                    </div>
+                    <div class="row">
+                        <div class="col-25">
+                            <label for="sort-algo">Algorithm</label>
+                        </div>
+                        <div class="col-75">
+                            <select name="algo" id="sort-algo">
+                                <option value="selection-sort">Selection Sort</option>
+                                <option value="bubble-sort">Bubble Sort</option>
+                                <option value="bogo-sort">Bogo Sort</option>
+                            </select>
+                        </div>
+                    </div>
+                </div>
+                <div class="controls-buttons">
+                    <button id="sort-button">Sort</button>
+                    <button id="refresh">Refresh</button>                    
+                </div>
             </div>
         </div>
     </main>

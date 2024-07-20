@@ -1,12 +1,15 @@
-const nBars = 60;
 const maxBarHeight = 100;
 const minBarHeight = 0;
 const barsElem = document.getElementsByClassName("bars")[0];
 const maxSleepTimeMillis = 1000; // 1 seconds
+
+var nBars;
 var barHeights = []
 
 function loadBarHeights() {
     barHeights = [];
+    nBars = parseInt(document.getElementById("no-of-elements").value);
+    console.log("No. of elements: " + nBars);
     for (let n = 0; n < nBars; n++) {
         let height = Math.floor(Math.random() * (maxBarHeight + 1)) + minBarHeight;
         barHeights.push(height);
@@ -15,6 +18,7 @@ function loadBarHeights() {
 
 function makeBars() {
     barsElem.innerHTML = '';
+    barsElem.style['grid-template-columns'] = `repeat(${nBars}, 1fr)`;
     for (let i = 0; i < barHeights.length; i++) {
         heightPercentage = parseInt((barHeights[i] / (maxBarHeight - minBarHeight)) * 100);
         // heightPercentage = parseInt((i / barHeights.length) * 100);
@@ -71,7 +75,6 @@ function refresh() {
 function main() {
     loadBarHeights();
     // Addjust bar width
-    barsElem.style['grid-template-columns'] = `repeat(${nBars}, 1fr)`;
     makeBars();
     console.log(barHeights);
 
@@ -94,17 +97,22 @@ function main() {
                     window.location.href = "https://youtu.be/dQw4w9WgXcQ";
             }
         },
-    )
+    );
 
     document.getElementById("refresh").addEventListener(
         "click",
         refresh
-    )
+    );
 
     document.getElementById("sort-algo").addEventListener(
         "change",
         refresh
-    )
+    );
+
+    document.getElementById("no-of-elements").addEventListener(
+        "change",
+        refresh
+    );
 
 }
 

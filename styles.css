@@ -31,7 +31,7 @@ button:hover {
     padding: 1em 0;
     color: #000;
     background-color: #fff;
-    margin-bottom: 3em;
+    margin-bottom: 1em;
     text-align: center;
     border-bottom: solid 1px #000;
 }
@@ -42,7 +42,7 @@ button:hover {
     display: grid;
     grid-template-columns: 60% 40%;
     align-items: start;
-    column-gap: 1em;
+    gap: 1em;
     max-width: 1000px;
     margin: 0 auto;
     padding: 1em;
@@ -64,7 +64,6 @@ button:hover {
     display: flex;
     flex-direction: column;
     justify-content: space-between;
-    height: 100%;
     border: solid 1px #000;
     background-color: #fff;
     padding: 1em;

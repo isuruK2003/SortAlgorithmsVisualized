@@ -26,15 +26,17 @@
                             <label for="no-of-elements">No. of Elements</label>
                         </div>
                         <div class="col-75">
+                            <span id="no-of-elements-disp"></span>
                             <input type="range" id="no-of-elements" max="300" min="10">
                         </div>
                     </div>
                     <div class="row">
                         <div class="col-25">
-                            <label for="sort-speed">Speed</label>
+                            <label for="sort-speed">Delay</label>
                         </div>
                         <div class="col-75">
-                            <input type="range" id="sort-speed">
+                            <span><span id="delay-disp"></span>ms</span>
+                            <input type="range" min="1" max="100" id="sort-delay">
                         </div>
                     </div>
                     <div class="row">

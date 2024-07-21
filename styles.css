@@ -64,6 +64,7 @@ button:hover {
     display: flex;
     flex-direction: column;
     justify-content: space-between;
+    height: 100%;
     border: solid 1px #000;
     background-color: #fff;
     padding: 1em;
@@ -96,7 +97,6 @@ button:hover {
     height: 370px;
     display: grid;
     grid-template-columns: repeat(20, auto);
-    column-gap: 1px;
     align-items:end;
     justify-content: space-evenly;
 }
@@ -104,5 +104,5 @@ button:hover {
 /* A single bar */
 
 .bar {
-    background-color: rgb(223, 168, 72);
+    background-color: rgb(12, 113, 131);
 }

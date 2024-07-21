@@ -21,7 +21,6 @@ function makeBars() {
     barsElem.style['grid-template-columns'] = `repeat(${nBars}, 1fr)`;
     for (let i = 0; i < barHeights.length; i++) {
         heightPercentage = parseInt((barHeights[i] / (maxBarHeight - minBarHeight)) * 100);
-        // heightPercentage = parseInt((i / barHeights.length) * 100);
         heightPercentageString = heightPercentage + "%";
         let newBarElement = document.createElement("div");
         newBarElement.style.height = heightPercentageString;

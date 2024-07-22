@@ -97,6 +97,7 @@ button:hover {
     height: 370px;
     display: grid;
     grid-template-columns: repeat(20, auto);
+    column-gap: 0.5px;
     align-items:end;
     justify-content: space-evenly;
 }

@@ -6,14 +6,23 @@ var sleepTimeMillis = document.getElementById("sort-delay");
 var nBars;
 var barHeights = []
 
+function shuffle() { 
+    for (let i = barHeights.length - 1; i > 0; i--) { 
+      const j = Math.floor(Math.random() * (i + 1)); 
+      [barHeights[i], barHeights[j]] = [barHeights[j], barHeights[i]]; 
+    } 
+    return barHeights; 
+}
+
 function loadBarHeights() {
     barHeights = [];
     nBars = parseInt(document.getElementById("no-of-elements").value);
     console.log("No. of elements: " + nBars);
     for (let n = 0; n < nBars; n++) {
-        let height = Math.floor(Math.random() * (maxBarHeight + 1)) + minBarHeight;
+        let height = Math.floor((n / nBars) * (maxBarHeight - minBarHeight));
         barHeights.push(height);
     }
+    shuffle();
 }
 
 function makeBars() {
@@ -66,6 +75,36 @@ async function selectionSortVisualized() {
     }
 }
 
+// this is the correct approach
+// 
+async function bubbleSort2Visualized() {
+    for (let i = 0; i < barHeights.length - 1; i++) {
+        for (let j = 0; j < barHeights.length - i - 1; j++) {
+            if (barHeights[j] > barHeights[j + 1]) {
+                let temp = barHeights[j + 1];
+                barHeights[j + 1] = barHeights[j];
+                barHeights[j] = temp;
+            }
+        }
+        makeBars();
+        await sleep(sleepTimeMillis)
+    }
+}
+
+async function insertionSort() {
+    for (let i = 1; i < barHeights.length; i++) {
+        let j = i;
+        while (j > 0 && barHeights[j - 1] > barHeights[j]) {
+            let temp = barHeights[j - 1];
+            barHeights[j - 1] = barHeights[j];
+            barHeights[j] = temp;
+            j--;
+            makeBars();
+        }
+        await sleep(sleepTimeMillis);
+    }
+}
+
 function refresh() {
     loadBarHeights();
     makeBars();
@@ -73,18 +112,27 @@ function refresh() {
 
 function sortBySelectedAlgorithm() {
     let sort_algo = document.getElementById("sort-algo").value;
-
+    document.getElementById('sort-button').disabled = true;
+    document.getElementById('refresh').disabled = true;
     switch (sort_algo) {
         case "bubble-sort":
-            BubbleSortVisualized();
+            // BubbleSortVisualized();
+            bubbleSort2Visualized();
             break;
 
         case "selection-sort":
             selectionSortVisualized();
             break;
+        
+        case "insertion-sort":
+            insertionSort();
+            break;
+        
         case "bogo-sort":
             window.location.href = "https://youtu.be/dQw4w9WgXcQ";
     }
+    document.getElementById('sort-button').disabled = false;
+    document.getElementById('refresh').disabled = false;
 }
 
 function main() {

@@ -2,14 +2,14 @@ const maxBarHeight = 100;
 const minBarHeight = 0;
 const barsElem = document.getElementsByClassName("bars")[0];
 
-var sleepTimeMillis = document.getElementById("sort-delay");
+var sleepTimeMillis = parseInt(document.getElementById("sort-delay").value);
 var nBars;
 var barHeights = []
 
 function shuffle() { 
     for (let i = barHeights.length - 1; i > 0; i--) { 
-      const j = Math.floor(Math.random() * (i + 1)); 
-      [barHeights[i], barHeights[j]] = [barHeights[j], barHeights[i]]; 
+        const j = Math.floor(Math.random() * (i + 1)); 
+        [barHeights[i], barHeights[j]] = [barHeights[j], barHeights[i]]; 
     } 
     return barHeights; 
 }
@@ -29,8 +29,8 @@ function makeBars() {
     barsElem.innerHTML = '';
     barsElem.style['grid-template-columns'] = `repeat(${nBars}, 1fr)`;
     for (let i = 0; i < barHeights.length; i++) {
-        heightPercentage = parseInt((barHeights[i] / (maxBarHeight - minBarHeight)) * 100);
-        heightPercentageString = heightPercentage + "%";
+        let heightPercentage = parseInt((barHeights[i] / (maxBarHeight - minBarHeight)) * 100);
+        let heightPercentageString = heightPercentage + "%";
         let newBarElement = document.createElement("div");
         newBarElement.style.height = heightPercentageString;
         newBarElement.className = "bar";
@@ -38,8 +38,33 @@ function makeBars() {
     }
 }
 
-async function sleep() {
-    await new Promise((resolve) => setTimeout(resolve, sleepTimeMillis));
+function sleep(ms) {
+    return new Promise(resolve => setTimeout(resolve, ms));
+}
+
+async function partition(start, end) {
+    let i = start - 1;
+
+    for (let j = start; j <= end; j++) {
+        if (barHeights[j] < barHeights[end] || j == end) {
+            i++;
+            let temp = barHeights[j];
+            barHeights[j] = barHeights[i];
+            barHeights[i] = temp;
+            makeBars();
+            await sleep(sleepTimeMillis);
+        }
+    }
+
+    return i;
+}
+
+async function QuickSortVisualized(start, end) {
+    if (end <= start) return;
+
+    let pivot = await partition(start, end);
+    await QuickSortVisualized(start, pivot - 1);
+    await QuickSortVisualized(pivot + 1, end);
 }
 
 async function BubbleSortVisualized() {
@@ -53,8 +78,8 @@ async function BubbleSortVisualized() {
                 barHeights[i + 1] = barHeights[i];
                 barHeights[i] = temp;
                 makeBars();
+                await sleep(sleepTimeMillis);
             }
-            await sleep(sleepTimeMillis)
         }
     }
 }
@@ -75,8 +100,6 @@ async function selectionSortVisualized() {
     }
 }
 
-// this is the correct approach
-// 
 async function bubbleSort2Visualized() {
     for (let i = 0; i < barHeights.length - 1; i++) {
         for (let j = 0; j < barHeights.length - i - 1; j++) {
@@ -87,7 +110,7 @@ async function bubbleSort2Visualized() {
             }
         }
         makeBars();
-        await sleep(sleepTimeMillis)
+        await sleep(sleepTimeMillis);
     }
 }
 
@@ -99,8 +122,8 @@ async function insertionSort() {
             barHeights[j - 1] = barHeights[j];
             barHeights[j] = temp;
             j--;
-            makeBars();
         }
+        makeBars();
         await sleep(sleepTimeMillis);
     }
 }
@@ -128,6 +151,10 @@ function sortBySelectedAlgorithm() {
             insertionSort();
             break;
         
+        case "quick-sort":
+            QuickSortVisualized(0, barHeights.length - 1);
+            break;
+        
         case "bogo-sort":
             window.location.href = "https://youtu.be/dQw4w9WgXcQ";
     }
@@ -137,42 +164,24 @@ function sortBySelectedAlgorithm() {
 
 function main() {
     loadBarHeights();
-    // Addjust bar width
     makeBars();
 
-    document.getElementById("delay-disp").innerHTML = document.getElementById("sort-delay").value
-    document.getElementById("no-of-elements-disp").innerHTML = document.getElementById("no-of-elements").value
+    document.getElementById("delay-disp").innerHTML = document.getElementById("sort-delay").value;
+    document.getElementById("no-of-elements-disp").innerHTML = document.getElementById("no-of-elements").value;
 
-    document.getElementById("sort-button").addEventListener(
-        "click",
-        sortBySelectedAlgorithm
-    );
+    document.getElementById("sort-button").addEventListener("click", sortBySelectedAlgorithm);
+    document.getElementById("refresh").addEventListener("click", refresh);
+    document.getElementById("sort-algo").addEventListener("change", refresh);
 
-    document.getElementById("refresh").addEventListener(
-        "click",
-        refresh
-    );
+    document.getElementById("no-of-elements").addEventListener("change", function () {
+        document.getElementById("no-of-elements-disp").innerHTML = document.getElementById("no-of-elements").value;
+        refresh();
+    });
 
-    document.getElementById("sort-algo").addEventListener(
-        "change",
-        refresh
-    );
-
-    document.getElementById("no-of-elements").addEventListener(
-        "change",
-        function () {
-            document.getElementById("no-of-elements-disp").innerHTML = document.getElementById("no-of-elements").value;
-            refresh();
-        }
-    );
-
-    document.getElementById("sort-delay").addEventListener(
-        "change",
-        function () {
-            sleepTimeMillis = parseInt(document.getElementById("sort-delay").value);
-            document.getElementById("delay-disp").innerHTML = sleepTimeMillis;
-        }
-    )
+    document.getElementById("sort-delay").addEventListener("change", function () {
+        sleepTimeMillis = parseInt(document.getElementById("sort-delay").value);
+        document.getElementById("delay-disp").innerHTML = sleepTimeMillis;
+    });
 }
 
-document.addEventListener("DOMContentLoaded", main())
+document.addEventListener("DOMContentLoaded", main);

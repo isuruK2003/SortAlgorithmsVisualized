@@ -56,7 +56,7 @@ button:hover {
         grid-template-rows: 60% 40%;
         align-items: center;
     }
-  }
+}
 
 /* Controls Section */
 
@@ -76,13 +76,13 @@ button:hover {
 }
 
 .row {
-    width: 100%;
     display: grid;
     grid-template-columns: 50% 50%;
     align-items: center;
     justify-content: center;
     justify-items: center;
     margin-bottom: 1em;
+    box-sizing: border-box;
 }
 
 /* Bar Container */
@@ -94,15 +94,23 @@ button:hover {
 }
 
 .bars {
-    height: 370px;
+    height: 50vh;
     display: grid;
     grid-template-columns: repeat(20, auto);
     align-items:end;
     justify-content: space-evenly;
 }
 
+@media only screen and (max-width: 800px) {
+    .bars {
+        height: 35vh;
+    }
+}
+
 /* A single bar */
 
 .bar {
-    background-color: rgb(12, 113, 131);
+    background-color: orange;
+    border-right: solid 0.25px black;
+    box-sizing: border-box;
 }

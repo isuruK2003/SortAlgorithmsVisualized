@@ -1,6 +1,6 @@
 # Sort Algorithms Visualized
 
-Sort Algorithms Visualized is a web application that visually demonstrates different sorting algorithms. This project helps users understand how various sorting algorithms work by providing an interactive and visual representation.
+Sort Algorithms Visualized is a web application that visually demonstrates different sorting algorithms. This project helps users understand how various sorting algorithms work by providing an interactive and visual representation. Check out the demo [here](https://isuruk2003.github.io/SortAlgorithmsVisualized/).
 
 ## Features
 
@@ -50,7 +50,3 @@ This project is licensed under the MIT License. See the LICENSE file for details
 
 - Inspired by various sorting algorithm visualizations available online.
 - Special thanks to the contributors and the open-source community.
-
-## Live Demo
-
-Check out the live demo [here](https://isuruk2003.github.io/SortAlgorithmsVisualized/).

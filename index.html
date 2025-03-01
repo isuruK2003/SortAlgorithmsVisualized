@@ -1,11 +1,13 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Sort Visualize</title>
     <link rel="stylesheet" href="styles.css">
 </head>
+
 <body>
     <header>
         <div class="header">
@@ -15,7 +17,7 @@
     <main>
         <div class="container">
             <div class="bars-section rounded bordered">
-                <div class="bars">
+                <div id="bars" class="bars">
                     <!-- <div class="bar"></div> -->
                 </div>
             </div>
@@ -44,23 +46,21 @@
                             <label for="sort-algo">Algorithm</label>
                         </div>
                         <div class="col-75">
-                            <select name="algo" id="sort-algo">
-                                <option value="selection-sort">Selection Sort</option>
-                                <option value="bubble-sort">Bubble Sort</option>
-                                <option value="insertion-sort">Insertion Sort</option>
-                                <option value="quick-sort">Quick Sort</option>
-                                <option value="bogo-sort">Bogo Sort</option>
-                            </select>
+                            <select name="algo" id="sort-algo"></select>
                         </div>
                     </div>
                 </div>
                 <div class="controls-buttons">
-                    <button id="sort-button">Sort</button>
-                    <button id="refresh">Shuffle</button>
+                    <button id="sort" class="rounded">Sort</button>
+                    <button id="shuffle" class="rounded">Shuffle</button>
                 </div>
             </div>
         </div>
     </main>
-    <script src="script.js"></script>
+    <script src="/scripts/bars.js"></script>
+    <script src="/scripts/sorting/bubble-sort.js"></script>
+    <script src="/scripts/sorting/selection-sort.js"></script>
+    <script src="/scripts/main.js"></script>
 </body>
+
 </html>

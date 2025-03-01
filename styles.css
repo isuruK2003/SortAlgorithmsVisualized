@@ -18,8 +18,7 @@ button {
     border: 1px solid rgba(0, 0, 0, 0.1);
     cursor: pointer;
     width: 100%;
-    border-radius: 8px;
-    transition: 0.3s;
+    transition: 0.1s;
 }
 
 button:hover {
@@ -100,10 +99,9 @@ button:hover {
 
 .bars {
     height: 50vh;
-    display: grid;
-    grid-template-columns: repeat(20, auto);
-    align-items: end;
-    justify-content: space-evenly;
+    display: flex;
+    flex-direction: row;
+    align-items: end
 }
 
 @media only screen and (max-width: 800px) {
@@ -116,9 +114,8 @@ button:hover {
 
 .bar {
     background-color: #333;
-    border-right: solid 0.25px white;
     box-sizing: border-box;
-    border-radius: 4px;
+    width: 100%;
 }
 
 .rounded {

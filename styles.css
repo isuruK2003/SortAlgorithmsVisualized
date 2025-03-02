@@ -128,6 +128,10 @@ select {
     outline: none;
 }
 
+option {
+    background-color: black;
+}
+
 .controls-buttons {
     display: flex;
     gap: 15px;

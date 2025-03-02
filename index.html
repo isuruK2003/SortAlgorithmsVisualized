@@ -25,20 +25,20 @@
                 <div class="controls-inputs">
                     <div class="row">
                         <div class="col-25">
-                            <label for="no-of-elements">No. of Elements</label>
-                            (<span id="no-of-elements-disp"></span>)
+                            <label for="no-of-bars">No. of Elements</label>
+                            (<span id="no-of-bars-display">50</span>)
                         </div>
                         <div class="col-75">
-                            <input type="range" id="no-of-elements" max="300" min="10">
+                            <input id="no-of-bars" type="range" max="100" min="10" value="50">
                         </div>
                     </div>
                     <div class="row">
                         <div class="col-25">
                             <label for="sort-speed">Delay</label>
-                            (<span><span id="delay-disp"></span>ms</span>)
+                            (<span><span id="delay-display"></span>ms</span>)
                         </div>
                         <div class="col-75">
-                            <input type="range" min="1" max="100" id="sort-delay">
+                            <input id="delay" type="range" min="1" max="100">
                         </div>
                     </div>
                     <div class="row">
@@ -60,6 +60,7 @@
     <script src="/scripts/bars.js"></script>
     <script src="/scripts/sorting/bubble-sort.js"></script>
     <script src="/scripts/sorting/selection-sort.js"></script>
+    <script src="/scripts/sorting/insertion-sort.js"></script>
     <script src="/scripts/main.js"></script>
 </body>
 

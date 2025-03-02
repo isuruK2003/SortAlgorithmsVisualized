@@ -1,66 +1,51 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Sort Visualize</title>
     <link rel="stylesheet" href="styles.css">
 </head>
+
 <body>
-    <header>
-        <div class="header">
-            <h1>Sort Algorithms Visualized</h1>
-        </div>
-    </header>
-    <main>
-        <div class="container">
-            <div class="bars-section rounded bordered">
-                <div class="bars">
-                    <!-- <div class="bar"></div> -->
-                </div>
+    <div class="app">
+        <h2>Sort Algorithms Visualized</h2>
+        <div class="content">
+            <div class="bars-wrap">
+                <div id="bars" class="bars"></div>
             </div>
-            <div class="controls rounded bordered">
-                <div class="controls-inputs">
+            <div class="controls">
+                <section>
                     <div class="row">
-                        <div class="col-25">
-                            <label for="no-of-elements">No. of Elements</label>
-                            (<span id="no-of-elements-disp"></span>)
-                        </div>
-                        <div class="col-75">
-                            <input type="range" id="no-of-elements" max="300" min="10">
-                        </div>
+                        <label for="no-of-bars">
+                            No. of Bars (<span id="no-of-bars-display">50</span>)
+                        </label>
+                        <input id="no-of-bars" type="range" max="100" min="10" value="50">
                     </div>
                     <div class="row">
-                        <div class="col-25">
-                            <label for="sort-speed">Delay</label>
-                            (<span><span id="delay-disp"></span>ms</span>)
-                        </div>
-                        <div class="col-75">
-                            <input type="range" min="1" max="100" id="sort-delay">
-                        </div>
+                        <label for="sort-speed">
+                            Delay (<span><span id="delay-display"></span>ms</span>)
+                        </label>
+                        <input id="delay" type="range" min="1" max="100">
                     </div>
                     <div class="row">
-                        <div class="col-25">
-                            <label for="sort-algo">Algorithm</label>
-                        </div>
-                        <div class="col-75">
-                            <select name="algo" id="sort-algo">
-                                <option value="selection-sort">Selection Sort</option>
-                                <option value="bubble-sort">Bubble Sort</option>
-                                <option value="insertion-sort">Insertion Sort</option>
-                                <option value="quick-sort">Quick Sort</option>
-                                <option value="bogo-sort">Bogo Sort</option>
-                            </select>
-                        </div>
+                        <label for="sort-algo">Algorithm</label>
+                        <select name="algo" id="sort-algo"></select>
                     </div>
-                </div>
+                </section>
                 <div class="controls-buttons">
-                    <button id="sort-button">Sort</button>
-                    <button id="refresh">Shuffle</button>
+                    <button id="sort" class="rounded">Sort</button>
+                    <button id="shuffle" class="rounded">Shuffle</button>
                 </div>
             </div>
         </div>
-    </main>
-    <script src="script.js"></script>
+    </div>
+    <script src="/scripts/bars.js"></script>
+    <script src="/scripts/sorting/bubble-sort.js"></script>
+    <script src="/scripts/sorting/selection-sort.js"></script>
+    <script src="/scripts/sorting/insertion-sort.js"></script>
+    <script src="/scripts/main.js"></script>
 </body>
+
 </html>

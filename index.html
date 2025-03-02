@@ -6,6 +6,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Sort Visualize</title>
     <link rel="stylesheet" href="styles.css">
+    <link rel="stylesheet" href="select-box.css">
 </head>
 
 <body>
@@ -31,7 +32,9 @@
                     </div>
                     <div class="row">
                         <label for="sort-algo">Algorithm</label>
-                        <select name="algo" id="sort-algo"></select>
+                        <div class="custom-select">
+                            <select name="algo" id="sort-algo"></select>
+                        </div>
                     </div>
                 </section>
                 <div class="controls-buttons">
@@ -46,6 +49,7 @@
     <script src="selection-sort.js"></script>
     <script src="insertion-sort.js"></script>
     <script src="main.js"></script>
+    <script src="select-box.js"></script>
 </body>
 
 </html>
